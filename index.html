@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ShiftFit — Workout Timing</title>
+<meta name="description" content="Find the best time to work out around your shift schedule. ShiftFit calculates optimal workout timing for shift workers — set up in 15 seconds.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ShiftFit — Workout Timing">
+<meta property="og:description" content="Personalized workout timing for shift workers. Know exactly when to exercise for maximum energy and recovery.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,800;1,9..144,400&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0c0f14;--surface:#161a22;--border:#232830;--text:#e8eaed;--text-dim:#8b919a;--accent:#f5c542;--accent-glow:rgba(245,197,66,.15);--green:#34d399;--orange:#fb923c;--red:#f87171;--blue:#4a9eff}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}.container{max-width:960px;margin:0 auto;padding:0 24px}nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 0;background:rgba(12,15,20,.85);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}nav .container{display:flex;align-items:center;justify-content:space-between}.logo{display:flex;align-items:center;gap:10px;text-decoration:none}.logo-icon{width:36px;height:36px;background:var(--accent);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px}.logo-text{font-family:'Fraunces',serif;font-weight:600;font-size:18px;color:var(--text)}nav a.nav-link{color:var(--text-dim);text-decoration:none;font-size:14px;font-weight:500;transition:color .2s}nav a.nav-link:hover{color:var(--text)}.hero{padding:160px 0 100px;text-align:center;position:relative}.hero::before{content:'';position:absolute;top:80px;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,var(--accent-glow) 0%,transparent 70%);pointer-events:none}.badge-pill{display:inline-block;background:var(--surface);border:1px solid var(--border);border-radius:100px;padding:6px 16px;font-size:13px;color:var(--accent);font-weight:500;margin-bottom:24px;letter-spacing:.5px}h1{font-family:'Fraunces',serif;font-weight:800;font-size:clamp(36px,6vw,60px);line-height:1.1;margin-bottom:20px;position:relative}h1 span{color:var(--accent)}.hero-sub{font-size:18px;color:var(--text-dim);max-width:520px;margin:0 auto 40px;line-height:1.7}.cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:12px;font-size:15px;font-weight:600;text-decoration:none;transition:all .25s;cursor:pointer;border:none}.btn-primary{background:var(--accent);color:#0c0f14}.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px var(--accent-glow)}.btn-outline{background:transparent;color:var(--text);border:1px solid var(--border)}.btn-outline:hover{border-color:var(--text-dim);background:var(--surface)}.demo-section{padding:80px 0}.section-label{font-size:13px;color:var(--accent);font-weight:600;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px}h2{font-family:'Fraunces',serif;font-weight:600;font-size:32px;margin-bottom:48px}.schedule-demo{max-width:420px;margin:0 auto}.workout-card{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:28px;margin-bottom:16px}.workout-card.high{border-left:4px solid var(--green)}.workout-card.low{border-left:4px solid var(--orange)}.workout-label{font-size:13px;color:var(--text-dim);font-weight:500;margin-bottom:8px}.workout-time{font-weight:700;font-size:24px;margin-bottom:4px}.workout-range{font-size:14px;color:var(--text-dim);margin-bottom:12px}.intensity-badge{display:inline-block;padding:4px 12px;border-radius:100px;font-size:12px;font-weight:600}.intensity-badge.high{background:rgba(52,211,153,.15);color:var(--green)}.intensity-badge.low{background:rgba(251,146,60,.15);color:var(--orange)}.workout-detail{font-size:14px;color:var(--text-dim);margin-top:8px}.status-bar{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px;text-align:center;font-size:15px;color:var(--green);font-weight:600}.features-section{padding:80px 0}.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}.feature-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:28px;transition:border-color .3s}.feature-card:hover{border-color:var(--accent)}.feature-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:16px}.feature-card h3{font-size:16px;font-weight:700;margin-bottom:8px}.feature-card p{font-size:14px;color:var(--text-dim);line-height:1.6}.how-section{padding:80px 0}.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}.step{text-align:center}.step-number{width:48px;height:48px;border-radius:50%;background:var(--accent);color:#0c0f14;font-family:'Fraunces',serif;font-weight:800;font-size:20px;display:inline-flex;align-items:center;justify-content:center;margin-bottom:16px}.step h3{font-size:16px;font-weight:700;margin-bottom:8px}.step p{font-size:14px;color:var(--text-dim)}.who-section{padding:80px 0}.who-grid{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}.who-tag{background:var(--surface);border:1px solid var(--border);border-radius:100px;padding:8px 20px;font-size:14px;font-weight:500}.cta-section{padding:80px 0;text-align:center}.cta-section h2{margin-bottom:16px}.cta-section p{color:var(--text-dim);margin-bottom:32px;font-size:16px}footer{border-top:1px solid var(--border);padding:40px 0;text-align:center}footer p{font-size:13px;color:var(--text-dim)}footer a{color:var(--text-dim);text-decoration:none}footer a:hover{color:var(--text)}.footer-links{display:flex;gap:24px;justify-content:center;margin-bottom:16px;font-size:13px}@media(max-width:640px){.steps{grid-template-columns:1fr;gap:32px}.hero{padding:130px 0 60px}h2{font-size:26px}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <a class="logo" href="#">
+      <div class="logo-icon">💪</div>
+      <span class="logo-text">ShiftFit</span>
+    </a>
+    <a class="nav-link" href="mailto:naruto0414@gmail.com">Contact</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="container">
+    <div class="badge-pill">For shift workers who exercise</div>
+    <h1>Know when to<br><span>work out</span></h1>
+    <p class="hero-sub">Your shift pattern changes everything. ShiftFit finds your best workout window based on your schedule, sleep, and energy cycles.</p>
+    <div class="cta-row">
+      <a href="#" class="btn btn-primary">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        App Store
+      </a>
+      <a href="#features" class="btn btn-outline">Learn More ↓</a>
+    </div>
+  </div>
+</section>
+
+<section class="demo-section">
+  <div class="container" style="text-align:center;">
+    <p class="section-label">Today's Plan</p>
+    <h2>Your workout window at a glance</h2>
+    <div class="schedule-demo">
+      <div class="workout-card high">
+        <div class="workout-label">Best Time — Energy Peak</div>
+        <div class="workout-time">4:30 PM</div>
+        <div class="workout-range">4:00 – 5:00 PM OK</div>
+        <span class="intensity-badge high">HIGH · 30-45 min</span>
+        <div class="workout-detail">1–3h after waking, your energy is at its highest</div>
+      </div>
+      <div class="workout-card low">
+        <div class="workout-label">Alternative — Post-shift Recovery</div>
+        <div class="workout-time">8:00 AM</div>
+        <div class="workout-range">7:30 – 8:30 AM OK</div>
+        <span class="intensity-badge low">LOW · 15-20 min</span>
+        <div class="workout-detail">Light stretching to wind down after your shift</div>
+      </div>
+      <div class="status-bar">✅ Your workout window is in 2h 15m</div>
+      <p style="margin-top:16px;font-size:13px;color:var(--text-dim);">12h Night shift (7PM–7AM) · Sleep at 9AM · 7h sleep</p>
+    </div>
+  </div>
+</section>
+
+<section class="features-section" id="features">
+  <div class="container">
+    <p class="section-label">Features</p>
+    <h2>Built for shift workers who stay active</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon" style="background:rgba(52,211,153,.12);">⚡</div>
+        <h3>Energy-based Timing</h3>
+        <p>Algorithm finds your peak energy window based on wake time and shift pattern. Not generic advice.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:rgba(251,146,60,.12);">🔥</div>
+        <h3>Smart Intensity</h3>
+        <p>HIGH, MEDIUM, LOW, or STRETCH — matched to your current energy state and time available.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:rgba(74,158,255,.12);">🔄</div>
+        <h3>Any Shift Pattern</h3>
+        <p>12h nights, 8h days, evenings, rotating — 6 presets plus custom. Recalculates instantly.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:var(--accent-glow);">📊</div>
+        <h3>Weekly Consistency (Pro)</h3>
+        <p>Track your workout consistency score. See which days you hit your window.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:rgba(168,130,255,.12);">🔔</div>
+        <h3>Energy Window Alerts (Pro)</h3>
+        <p>Get notified 30 minutes before your best workout time. Never miss your window.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:rgba(248,113,113,.12);">📅</div>
+        <h3>Workout History (Pro)</h3>
+        <p>Monthly calendar view of your check-ins. See your progress over 30 days.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="how-section">
+  <div class="container" style="text-align:center;">
+    <p class="section-label">How It Works</p>
+    <h2>Set up in 15 seconds</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-number">1</div>
+        <h3>Pick your shift</h3>
+        <p>Choose from 6 presets or enter custom shift times</p>
+      </div>
+      <div class="step">
+        <div class="step-number">2</div>
+        <h3>Set sleep time</h3>
+        <p>Adjust when you usually go to sleep after your shift</p>
+      </div>
+      <div class="step">
+        <div class="step-number">3</div>
+        <h3>Get your window</h3>
+        <p>Best workout time, intensity, and duration — personalized to your schedule</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="who-section">
+  <div class="container">
+    <p class="section-label">Built For</p>
+    <h2>Every shift worker who wants to stay fit</h2>
+    <div class="who-grid">
+      <span class="who-tag">🏥 Nurses</span>
+      <span class="who-tag">🚑 EMTs & Paramedics</span>
+      <span class="who-tag">🚔 Police Officers</span>
+      <span class="who-tag">🏭 Factory Workers</span>
+      <span class="who-tag">🚛 Truck Drivers</span>
+      <span class="who-tag">🛡 Security Guards</span>
+      <span class="who-tag">🍳 Restaurant Workers</span>
+      <span class="who-tag">✈️ Flight Attendants</span>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container">
+    <h2>Stop guessing.<br><span style="color:var(--accent);">Start training smart.</span></h2>
+    <p>Free to use. Pro features $4.99/month.</p>
+    <a href="#" class="btn btn-primary" style="font-size:17px;padding:16px 36px;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+      Download on the App Store
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-links">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="mailto:naruto0414@gmail.com">Support</a>
+    </div>
+    <p>© 2026 osk. All rights reserved.</p>
+    <p style="margin-top:8px;font-size:12px;">This app does not provide medical or fitness advice. Consult a healthcare professional before starting any exercise program.</p>
+  </div>
+</footer>
+
+</body>
+</html>
