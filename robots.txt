@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://park-juhwan.github.io/shiftfit-web/sitemap.xml
